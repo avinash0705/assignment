@@ -1,0 +1,77 @@
+.timeline-container{
+    display: flex;
+    gap: 0;
+    padding: 16px;
+    border: 1px solid #EAECF0;
+    background-color: #FCFCFD;
+    justify-content: flex-start;
+
+    .step:first-child .step-base :first-child  {
+        visibility: hidden;
+    }
+    .step{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 6px;
+        .step-base{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            .line{
+                border-bottom: 1px solid;
+                width: 55px;
+            }
+            .step-number{
+                border: 1px solid #D0D5DD;
+                width: 18px;
+                height: 18px;
+                border-radius: 100px;
+                padding: 2px;
+                font-size: 14px;
+                font-weight: 500;
+                line-height: 20px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin: 0 8px;
+
+                &.done{
+                    background-image: url("../asset/images/tick.svg");
+                    background-repeat: no-repeat;
+                    background-position: center;
+                    background-color: #DBEEFB;
+                    border-color: transparent;
+                }
+    
+            }
+        }
+
+        .step-name{
+            color: #475467;
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 20px;
+        }
+
+
+        &.active{
+            font-weight: 500;
+            .step-number{
+                color: white;
+                background-color: black;
+            }
+
+            .step-name{
+                color: #101828;
+                font-weight: 500;
+            }
+        }
+
+        
+    }
+
+    .step:last-child .step-base :last-child {
+        visibility: hidden;
+    }
+}

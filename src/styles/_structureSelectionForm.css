@@ -1,0 +1,97 @@
+#formStructureSelection{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0px;
+
+    .title-wrapper{
+        padding: 24px 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+        box-sizing: border-box;
+
+
+        .form-heading{
+            margin-bottom: 6px;
+        }
+        .search-bar{
+            display: flex;
+            align-items: center;
+            width: 100%;
+            gap: 10px;
+            position: relative;
+            margin-top: 16px;
+        }
+        .count{
+            display: flex;
+            padding: 0 20px;
+            font-size: 14px;
+            font-weight: 400px;
+            line-height: 20px;
+            color: #475467;
+        }
+
+        .search-ico{
+            background: url("../asset//images/search-lg.svg");
+            height: 20px;
+            width: 20px;
+            position: absolute;
+            top: 12px;
+            left: 14px;
+        }
+        .input-container{
+            padding-left: 40px;
+            width: calc(100% - 200px);
+        }
+    }
+
+    
+
+    .listing-wrapper{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+        .top-head{
+            display: flex;
+            justify-content: space-between;
+            background-color: #EAECF0;
+            font-size: 12px;
+            font-weight: 500px;
+            line-height: 18px;
+            color: #475467;
+            padding: 12px 24px;
+            width: calc(100% - 48px);
+            .item{
+                display: flex;
+                gap: 10px;
+            }
+        }
+
+        .list-container{
+            height: 200px;
+            width: 100%;
+            overflow-y: scroll;
+
+            .list-item{
+                display: flex;
+                padding: 12px 24px;
+                border-bottom: 1px solid #EAECF0;
+                justify-content: space-between;
+
+                .structure-container{
+                    display: flex;
+                    gap: 10px;
+                }
+
+                .roles-container{
+                    select{
+                        border: none;
+                    }
+                }
+            }
+        }
+    }
+}

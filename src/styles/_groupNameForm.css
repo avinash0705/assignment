@@ -1,0 +1,32 @@
+
+#formGroupName {
+    padding: 24px 24px 32px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: flex-start;
+    width: 400px;
+    margin: 0 auto;
+    
+    .fields-container{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 6px;
+    }
+
+    .label{
+        font-size: 14px;
+        font-weight: 500px;
+        line-height: 20px;
+        &::after{
+            content: "*";
+            color: red;
+            padding-left: 4px;
+        }
+    }
+
+    
+
+
+}

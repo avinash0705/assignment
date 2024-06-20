@@ -1,0 +1,86 @@
+#selectMembersForm{
+    .title-wrapper{
+        padding: 24px 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+        box-sizing: border-box;
+
+        .form-heading{
+            margin-bottom: 6px;
+        }
+        .search-bar{
+            display: flex;
+            align-items: center;
+            width: 100%;
+            gap: 10px;
+            position: relative;
+            margin-top: 16px;
+        }
+        .count{
+            display: flex;
+            padding: 0 20px;
+            font-size: 14px;
+            font-weight: 400px;
+            line-height: 20px;
+            color: #475467;
+        }
+
+        .search-ico{
+            background: url("../asset//images/search-lg.svg");
+            height: 20px;
+            width: 20px;
+            position: absolute;
+            top: 12px;
+            left: 14px;
+        }
+        .input-container{
+            padding-left: 40px;
+            width: calc(100% - 200px);
+        }
+    }
+
+    .list-container{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+        height: 200px;
+        overflow-y: scroll;
+
+        .list-item{
+            width: 100%;
+
+            .custom-toggle-container{
+                margin: 0;
+                cursor: pointer;
+                padding: 12px 24px;
+                width: calc(100% - 48px);
+                border: none;
+                border-bottom: 1px solid #EAECF0;
+
+                .member-details{
+                    display: flex;
+                    flex-direction: column;
+                    align-items: flex-start;
+
+                    .member-user{
+                        font-size: 14px;
+                        font-weight: 400;
+                        line-height: 20px;
+                    }
+                    .member-info{
+                        font-size: 12px;
+                        font-weight: 400;
+                        line-height: 18px;
+                        color: #667085;
+                    }
+                }
+            }
+
+        }
+
+
+    }
+}
