@@ -16,7 +16,7 @@
 }
 
 .content-wrapper {
-    flex-grow: 1; /* Allow content to take remaining space */
+    flex-grow: 1;
 }
 
 .switch {

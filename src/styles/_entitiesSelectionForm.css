@@ -95,9 +95,7 @@
     
 }
 
-.structure-item{
-    cursor: pointer;
-}
+
 
 .countries-list, .entities-list{
     padding-left: 20px;
@@ -111,7 +109,7 @@
     align-items: center;
     justify-content: flex-start;
     gap: 8px;
-
+    cursor: pointer;
     .custom-checkbox-container {
         width: 20px;
     }
@@ -128,6 +126,7 @@
         display: flex;
         gap: 8px;
         align-items: center;
+        cursor: pointer;
     }
 }
 

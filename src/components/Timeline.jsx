@@ -3,7 +3,7 @@ import "../styles/_timeline.css";
 import { useFormContext } from "../Context";
 export default function Timeline (props) {
     const {steps} = props;
-    const { formData, updateFormData } = useFormContext();
+    const { formData } = useFormContext();
 
     const active = formData?.step || 0;
     console.log("active", active);

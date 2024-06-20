@@ -2,9 +2,10 @@ import { useEffect, useState } from "react";
 import { useFormContext } from "../Context";
 import CustomCheckbox from "./Common/CustomCheckbox";
 import "../styles/_structureSelectionForm.css";
+import { fetchStructuresList } from "../xhr";
 export function StructureSelectionForm ({ onNext, onPrev }) {
 
-    const { formData, updateFormData } = useFormContext();
+    const { formData, dataset, updateFormData, updateDataset } = useFormContext();
     const [searchTerm, setSearchTerm] = useState('');
     const [structures, setStructures] = useState([]);
     const [loading, setLoading] = useState(false);
@@ -12,52 +13,24 @@ export function StructureSelectionForm ({ onNext, onPrev }) {
     useEffect(() => {
         const fetchStructures = async () => {
             setLoading(true);
-            // const response = await fetch('/api/structures');
-            // const data = await response.json();
-            const data = [
-                {
-                    label: "Structure 1",
-                    id: 1,
-                    roles: [
-                        {id: 1, label: "No Accesss"},
-                        {id: 2, label: "Basic Accesss"},
-                        {id: 3, label: "Full Accesss"}
-                    ]
-                },
-                {
-                    label: "Structure 2",
-                    id: 2,
-                    roles: [
-                        {id: 1, label: "No Accesss"},
-                        {id: 2, label: "Basic Accesss"},
-                        {id: 3, label: "Full Accesss"}
-                    ]
-                },
-                {
-                    label: "Structure 3",
-                    id: 3,
-                    roles: [
-                        {id: 1, label: "No Accesss"},
-                        {id: 2, label: "Basic Accesss"},
-                        {id: 3, label: "Full Accesss"}
-                    ]
-                }
-            ]
-            setStructures(data);
+            const response = await fetchStructuresList();
+            setStructures(response.data);
+            updateDataset({ structures: response.data });
             setLoading(false);
         };
 
-        if (formData.structures.length === 0) {
+        const structuresList = formData.structures|| dataset.structures;
+
+        if (structuresList.length === 0 ) {
             fetchStructures();
         } else {
-            setStructures(formData.structures);
-
+            setStructures(structuresList);
         }
-    }, [formData.structures]);
+    }, []);
 
     const handleStructureChange = (id) => {
         const updatedStructures = structures.map(structure =>
-            structure.id === id ? { ...structure, selected: !structure.selected } : structure
+            structure.id === id ? { ...structure, selected: !structure.selected, roleId: structure.roleId || "1" } : structure
         );
         setStructures(updatedStructures);
         updateFormData({ structures: updatedStructures });

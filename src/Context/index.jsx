@@ -1,12 +1,9 @@
 import React, { createContext, useState, useContext } from 'react';
 
-// Create the context
 const FormContext = createContext();
 
-// Custom hook to use the FormContext
 export const useFormContext = () => useContext(FormContext);
 
-// FormProvider component to provide the context to its children
 export const FormProvider = ({ children }) => {
     const [formData, setFormData] = useState({
         step: 0,
@@ -15,6 +12,11 @@ export const FormProvider = ({ children }) => {
         entities: [],
         members: []
     });
+    const [dataset, setDataset] = useState({
+        structures: [],
+        entities: [],
+        members: []
+    })
 
     const next = () => {
         setFormData(prevData => ({...prevData,  step: (prevData.step || 0) + 1}));
@@ -27,8 +29,12 @@ export const FormProvider = ({ children }) => {
         setFormData(prevData => ({ ...prevData, ...newData }));
     };
 
+    const updateDataset = (newData) => {
+        setDataset(prevData => ({ ...prevData, ...newData }));
+    };
+
     return (
-        <FormContext.Provider value={{ formData, updateFormData, next, prev }}>
+        <FormContext.Provider value={{ formData, dataset, updateFormData, updateDataset, next, prev }}>
             {children}
         </FormContext.Provider>
     );
