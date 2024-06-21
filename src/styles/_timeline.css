@@ -19,7 +19,7 @@
             justify-content: center;
             align-items: center;
             .line{
-                border-bottom: 1px solid;
+                border-bottom: 1px solid #D0D5DD;
                 width: 55px;
             }
             .step-number{

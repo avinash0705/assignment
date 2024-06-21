@@ -1,9 +1,7 @@
-import logo from './logo.svg';
 import './App.css';
 import PermissionGroupForm from './components/PermissionGroupForm';
-import { FormContext, FormProvider } from './Context';
+import {FormProvider } from './Context';
 import { useCallback, useState } from 'react';
-import { Routes, Route } from "react-router-dom"
 
 function App() {
   const [formState, setFormState] = useState({});

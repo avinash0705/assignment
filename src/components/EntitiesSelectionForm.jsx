@@ -293,7 +293,7 @@ const EntitiesSelectionForm = () => {
 
             <div className="listing-wrapper">
                 {entitiesData?.map((structure) => (
-                    <div key={structure.id} className="structure-item">
+                    <div key={structure.id} className={`structure-item ${expandedStructures[structure.id] ? 'expand' : ''}`}>
                         <div className="structure-header" onClick={() => handleStructureToggle(structure.id)}>
                             <CustomCheckbox
                                 id={`structure-${structure.id}`}
@@ -302,9 +302,7 @@ const EntitiesSelectionForm = () => {
                                 label=""
                             />
                             <span
-                                className={`expand-icon ${
-                                    expandedStructures[structure.id] ? "" : "right"
-                                }`}
+                                className={`expand-icon ${expandedStructures[structure.id] ? '' : 'right'}`}
                             ></span>
                             <span className="structure-label">
                                 {structure.label}
@@ -316,34 +314,17 @@ const EntitiesSelectionForm = () => {
                         {expandedStructures[structure.id] && (
                             <div className="countries-list">
                                 {structure.countries?.map((country) => (
-                                    <div key={country.id} className="country-item">
+                                    <div key={country.id} className={`country-item ${expandedCountries[country.id] ? 'expand' : ''}`}>
                                         <div className="country-header">
-                                            <div className="details" onClick={() =>
-                                                        handleCountryToggle(country.id)
-                                                    }>
+                                            <div className="details" onClick={() => handleCountryToggle(country.id)}>
                                                 <CustomCheckbox
                                                     id={`country-${country.id}`}
-                                                    checked={isAllEntitiesSelected(
-                                                        structure.id,
-                                                        country.id
-                                                    )}
-                                                    onChange={() =>
-                                                        handleSelectAllEntities(
-                                                            structure.id,
-                                                            country.id,
-                                                            !isAllEntitiesSelected(
-                                                                structure.id,
-                                                                country.id
-                                                            )
-                                                        )
-                                                    }
+                                                    checked={isAllEntitiesSelected(structure.id, country.id)}
+                                                    onChange={() => handleSelectAllEntities(structure.id, country.id, !isAllEntitiesSelected(structure.id, country.id))}
                                                     label=""
                                                 />
                                                 <span
-                                                    className={`expand-icon ${
-                                                        expandedCountries[country.id] ? "" : "right"
-                                                    }`}
-                                                    
+                                                    className={`expand-icon ${expandedCountries[country.id] ? '' : 'right'}`}
                                                 ></span>
                                                 <span className="country-label">
                                                     {country.label} {`(${country.entities?.length})`}
@@ -353,11 +334,7 @@ const EntitiesSelectionForm = () => {
                                                 id={`country-role-${country.id}`}
                                                 value={country.roleId || 1}
                                                 onChange={(e) =>
-                                                    handleCountryRoleChange(
-                                                        e,
-                                                        structure.id,
-                                                        country.id
-                                                    )
+                                                    handleCountryRoleChange(e, structure.id, country.id)
                                                 }
                                             >
                                                 <option value={1}>No Access</option>
@@ -372,13 +349,7 @@ const EntitiesSelectionForm = () => {
                                                         <CustomCheckbox
                                                             id={`entity-${entity.id}`}
                                                             checked={entity.selected}
-                                                            onChange={() =>
-                                                                handleEntityChange(
-                                                                    structure.id,
-                                                                    country.id,
-                                                                    entity.id
-                                                                )
-                                                            }
+                                                            onChange={() => handleEntityChange(structure.id, country.id, entity.id)}
                                                             label={entity.label}
                                                         />
                                                     </div>

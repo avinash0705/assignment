@@ -97,9 +97,7 @@
 
 
 
-.countries-list, .entities-list{
-    padding-left: 20px;
-}
+
 .structure-header, .country-header, .entity-item{
     padding: 12px 24px;
     border-bottom: 1px solid #EAECF0;
@@ -118,7 +116,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-
+    padding-left: 44px;
     .custom-checkbox-container {
         width: 20px;
     }
@@ -161,11 +159,12 @@
     color: #475467;
 }
 .entity-item{
+    padding-left: 64px;
     .custom-checkbox-label{
         font-size: 12px;
-    line-height: 18px;
-    font-weight: 500;
-    color: #475467;
+        line-height: 18px;
+        font-weight: 500;
+        color: #475467;
     }
 }
 
@@ -191,3 +190,5 @@ button:disabled {
     background-color: #ddd;
     cursor: not-allowed;
 }
+
+
